@@ -1,6 +1,31 @@
-require("nvim-treesitter.configs").setup({
-  -- Grammars are installed via Nix (nvim-treesitter.withAllGrammars)
-  -- so we don't need ensure_installed
+local ok, ts_configs = pcall(require, "nvim-treesitter.configs")
+if not ok then
+  vim.schedule(function()
+    vim.notify("nvim-treesitter is not installed yet. Run :Lazy sync", vim.log.levels.WARN)
+  end)
+  return
+end
+
+ts_configs.setup({
+  ensure_installed = {
+    "bash",
+    "css",
+    "html",
+    "javascript",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "nix",
+    "regex",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+  },
+  auto_install = true,
 
   highlight = {
     enable = true,

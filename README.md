@@ -37,6 +37,13 @@ stow -t "$HOME" zsh git tmux ghostty btop yazi nvim
 nvim +Lazy!\ sync +qa
 ```
 
+If you ever see `module 'nvim-treesitter.configs' not found`:
+
+```bash
+rm -rf ~/.local/share/nvim/lazy/nvim-treesitter
+nvim +Lazy!\ sync +qa
+```
+
 ## External tools expected by this config
 
 - CLI/tools: `git`, `zsh`, `tmux`, `ghostty`, `btop`, `yazi`, `fzf`, `fd`, `eza`, `bat`, `ripgrep`, `lazygit`
